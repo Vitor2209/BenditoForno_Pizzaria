@@ -168,3 +168,24 @@ window.addEventListener("mousemove", function (event) {
   }
 
 });
+
+/**
+ * VIEW ALL MENU BUTTON → WhatsApp
+ */
+
+const viewAllMenuBtn = document.getElementById("view-all-menu");
+
+if (viewAllMenuBtn) {
+  viewAllMenuBtn.addEventListener("click", function (event) {
+    event.preventDefault(); // impede o link padrão "#"
+    const phoneNumber = "351211451513"; // número da pizzaria em Portugal
+    const message = "Olá, gostaria de ver o cardápio completo!";
+    const encodedMessage = encodeURIComponent(message);
+
+    // link universal do WhatsApp
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // abre o WhatsApp em nova aba
+    window.open(whatsappLink, "_blank");
+  });
+}
